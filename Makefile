@@ -1,4 +1,4 @@
-.PHONY: build-image test linter
+.PHONY: build-image test linter up
 
 PYTHON=.venv/bin/python
 APPNAME=example_api
@@ -13,3 +13,6 @@ test:
 
 linter:
 	"${PYTHON}" -m flake8 "${SRCDIR}" "${TESTDIR}"
+
+up:
+	docker run -p 8000:8000 -d "${APPNAME}"
